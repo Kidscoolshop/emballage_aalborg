@@ -461,9 +461,9 @@
 
 <nav>
   <div class="nav-inner">
-    <button class="tab-btn active" onclick="showTab('vejledning')">Vejledning</button>
-    <button class="tab-btn" onclick="showTab('tjekker')">Mikrovirksomhed?</button>
-    <button class="tab-btn" onclick="showTab('beregner')">Emballageberegner</button>
+    <button class="tab-btn active" onclick="showTab('vejledning', this)">Vejledning</button>
+    <button class="tab-btn" onclick="showTab('tjekker', this)">Mikrovirksomhed?</button>
+    <button class="tab-btn" onclick="showTab('beregner', this)">Emballageberegner</button>
   </div>
 </nav>
 
@@ -728,11 +728,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 // ── TAB NAVIGATION ──────────────────────────────────────────────
-function showTab(id) {
+function showTab(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
+  if (btn) btn.classList.add('active');
 }
 
 // ── CHECKER ─────────────────────────────────────────────────────
